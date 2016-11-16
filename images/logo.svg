@@ -26,10 +26,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.2837891"
-     inkscape:cx="362.47043"
-     inkscape:cy="188.65083"
+     inkscape:cx="362.63442"
+     inkscape:cy="93.925012"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1056"
@@ -52,6 +52,10 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
@@ -119,7 +123,7 @@
     <path
        inkscape:connector-curvature="0"
        id="path4215"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#22b3eb;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 72.59256,992.5202 8.511192,14.7326 -17.022392,0 8.5112,-14.7326 z m 32.02693,55.4343 -64.05137,0 21.34921,-36.9558 21.350462,0 21.351698,36.9558 z m -66.101699,-22.2244 -8.5112,-14.7314 17.02239,0 -8.51119,14.7314 z M 6.49335,970.29704 l 64.05012,0 -21.350449,36.95576 -21.35046,0 L 6.49335,970.29704 Z m 27.58142,81.40306 77.03557,0 -23.514488,-40.7014 21.875228,0 0,-3.7459 -24.039258,0 -12.839261,-22.22439 -12.83926,22.22439 -6.23222,0 23.514489,-40.70166 -77.03557,0 23.51449,40.70166 -21.87397,0 0,3.7459 24.038,0 12.83927,22.2232 12.83926,-22.2232 6.23221,0 -23.51449,40.7014" />
   </g>
 </svg>

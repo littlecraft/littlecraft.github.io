@@ -28,14 +28,21 @@
                 {% endfor %}
                 </ul>        
             </div><!-- .nav-menu -->
-            <a class="subscribe-button fa-feed square fill-horizontal" href="{{site.baseurl}}/feed.xml"><span class="screen-reader-text">Subscribe</span></a>
+            <div class="main-buttons">
+              {% if site.github_username %}
+              <a href="https://github.com/{{ site.github_username }}" class="fa-github-alt square fill-horizontal"><span class="screen-reader-text">GitHub</span></a>
+              {% endif %}
+              {% if site.author_email %}
+              <a href="mailto:{{ site.author_email }}" class="fa-envelope square fill-horizontal"><span class="screen-reader-text">Email</span></a>
+              {% endif %}
+              <a class="fa-feed square fill-horizontal" href="{{ site.baseurl }}/feed.xml"><span class="screen-reader-text">RSS</span></a>
+            </div>
         </div><!-- .inner -->
     </nav><!-- .site-navigation -->
     <header class="site-header">
         <div class="inner">
             <!-- <h1 class="site-title"><a class="logo-text" href="{{ site.baseurl }}/">{{site.title}}</a></h1> -->
-            <object class="site-title" type="image/svg+xml" data="{{ site.logo }}">
-            </object>
+            <object class="site-title" type="image/svg+xml" data="{{ site.logo }}"></object>
             <p class="site-description">{{site.tagline}}</p>
         </div><!-- .inner -->
     </header>
