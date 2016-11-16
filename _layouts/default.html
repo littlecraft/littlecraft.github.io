@@ -30,7 +30,7 @@
             </div><!-- .nav-menu -->
             <div class="main-buttons">
               {% if site.github_username %}
-              <a href="https://github.com/{{ site.github_username }}" class="fa-github-alt square fill-horizontal"><span class="screen-reader-text">GitHub</span></a>
+              <a href="https://github.com/{{ site.github_username }}" class="fa-github square fill-horizontal"><span class="screen-reader-text">GitHub</span></a>
               {% endif %}
               {% if site.author_email %}
               <a href="mailto:{{ site.author_email }}" class="fa-envelope square fill-horizontal"><span class="screen-reader-text">Email</span></a>
@@ -43,9 +43,11 @@
         <div class="inner">
             <!-- <h1 class="site-title"><a class="logo-text" href="{{ site.baseurl }}/">{{site.title}}</a></h1> -->
             <object class="site-title" type="image/svg+xml" data="{{ site.logo }}"></object>
-            <p class="site-description">{{site.tagline}}</p>
+            <!-- <p class="site-description">{{site.tagline}}</p> -->
         </div><!-- .inner -->
     </header>
+    <div class="site-header-spacing">
+    </div>
     {{content}}
     {% include footer.html %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
