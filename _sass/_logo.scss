@@ -1,10 +1,17 @@
 .logo-container {
   display: table;
-  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
 }
 
-.logo {
+.row {
+  display: table-row;
+}
+
+.logo-element {
   display: table-cell;
+  vertical-align: middle;
+  text-align: left;
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -35,14 +42,15 @@
 }
 
 .logo-text {
+
   @include svg('svg', (
-    viewBox: 0 0 900 86
+    viewBox: 0 0 707 86
   )) {
     @include svg('g', (
       transform: 'translate(-17.204681, -506.574)'
     )) {
       @include svg('g', (
-       transform: 'translate(20.409124,-20.962703)'
+        transform: 'translate(20.409124,-20.962703)'
       )) {
         // l
         @include svg('path', (
