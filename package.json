@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sass-svg": "latest",
-    "sassdash": "latest"
+    "sassdash": "^0.8.0",
+    "sass-svg": "latest"
   }
 }

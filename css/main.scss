@@ -4,12 +4,13 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
+    "../node_modules/sassdash/index",
+    "../node_modules/sass-svg/index",
     "variables",
     "icons",
     "reset",
     "general",
-    "../node_modules/sassdash/index",
-    "../node_modules/sass-svg/index"
+    "logo"
 ;
 
 /**
@@ -137,6 +138,7 @@
 .site-header {
     background: lighten( $mine-shaft, 2% );
     padding-top: 30px;
+    padding-bottom: 30px;
     box-shadow: 0px 2px 2px darken( $mine-shaft, 4% );
 }
 
