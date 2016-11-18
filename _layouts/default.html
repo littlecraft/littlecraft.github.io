@@ -11,6 +11,7 @@
     <link rel="canonical" href="{{ page.url | replace:'/index.html','/' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Feed" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 </head>
+    {% include logo_defs.svg %}
 <body>
     <nav id="top" class="site-navigation">
         <div class="inner">
@@ -42,7 +43,11 @@
     <header class="site-header">
         <div class="inner">
           <a href="{{ site.baseurl }}/">
-            <div class="logo"></div>
+            <div class="logo">
+              <svg viewBox="0 0 742 85">
+                <use xlink:href="#logo" x="0" y="0"/>
+              </svg>
+            </div>
           </a>
         </div>
     </header>

@@ -4,13 +4,10 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-    "../node_modules/sassdash/index",
-    "svg-mask",
     "variables",
     "icons",
     "reset",
-    "general",
-    "logo"
+    "general"
 ;
 
 /**
@@ -39,6 +36,11 @@
 .site-footer {
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.logo {
+    max-width: 400px;
+    fill: #AFAFAF;
 }
 
 .inner {
@@ -999,8 +1001,8 @@ a.archive-top-link:hover {
     }
 
     .site-header {
-        padding-bottom: 36px;
-        padding-top: 36px;
+        padding-bottom: 60px;
+        padding-top: 48px;
     }
 
     .entry-header {
