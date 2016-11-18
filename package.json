@@ -9,7 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "sassdash": "^0.8.0",
-    "sass-svg": "latest"
+    "sassdash": "^0.8.0"
   }
 }

@@ -5,7 +5,7 @@
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
     "../node_modules/sassdash/index",
-    "../node_modules/sass-svg/index",
+    "svg-mask",
     "variables",
     "icons",
     "reset",
@@ -999,7 +999,7 @@ a.archive-top-link:hover {
     }
 
     .site-header {
-        padding-bottom: 48px;
+        padding-bottom: 36px;
         padding-top: 36px;
     }
 
