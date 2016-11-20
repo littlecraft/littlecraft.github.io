@@ -282,7 +282,7 @@
 }
 
 .entry-meta {
-    background-color: lighten( $picton-blue, 11% ); 
+    background-color: $entry-meta; 
     clear: both;
     color: $white;
     font-size: 12px;
