@@ -4,10 +4,11 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-    "variables",
-    "icons",
-    "reset",
-    "general"
+    "variables"
+    , "icons"
+    , "reset"
+    , "general"
+    , "vendor/magnific-popup/magnific-popup"
 ;
 
 /**

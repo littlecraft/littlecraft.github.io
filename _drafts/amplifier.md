@@ -23,7 +23,7 @@ The first thing that I thought about trying was to take an old boombox or AM/FM 
 
 It had a broken potentiometer for the aux volume control that was rattling around inside of the enclosure.  But that'd be an easy fix with a through-hole 50K pot soldered back on to the main board, and off to the races we go!
 
-{% include image_full.html imageurl="/images/posts/amp/Broken-pot.jpg" title="Sad Pot" caption="Sad pot" %}
+{% include image_full.html imageurl="/images/posts/amp/Broken-pot.jpg" title="Poor guy" caption="Poor guy" %}
 
 Unfortunately, after plugging it in, and listening to the audio quality, the mood got a little deflated.  Although it was loud, with 15 watts, and a 4Ω woofer, the fidelity was pretty poor, and I think that it is due to the amplifier's board layout, cost-reducing efforts, and the low quality of the speaker driver.  The amplifier also had a pretty solid 60hz buzz, which at the time, I didn't really know how to solve.  Turns out, [appropriate grounding](http://www.geofex.com/article_folders/stargnd/stargnd.htm) and employment of [bypass capacitors](https://www.youtube.com/watch?v=UW_XFGGTh0I) (to reduce noise on the power rails) are incredibly important to producing a clean amplified audio signal.
 
@@ -125,11 +125,11 @@ If you don't have a ready supply of capacitors and resistors, getting a pre-asse
 1. 1x - 2x4x10 7/8" (or whatever dimensions you need) architectural aluminum stock
 1. 1x - Aluminum heatsink (optional, you can alternatively find a way to thermally bond the amplifier chip to an aluminum chassis).
 
-{% include image_full.html imageurl="/images/posts/amp/Parts-amp.jpg" title="Amplifier parts" caption="Amplifier parts (most of them, anyway)" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Parts-amp.jpg" title="Amplifier parts" caption="Amplifier parts (most of them, anyway)" %}
 
-{% include image_full.html imageurl="/images/posts/amp/Parts-power.jpg" title="Power supply parts" caption="Power supply parts (well, everything except the mounting hardware and terminal blocks)" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Parts-power.jpg" title="Power supply parts" caption="Power supply parts (well, everything except the mounting hardware and terminal blocks)" %}
 
-{% include image_full.html imageurl="/images/posts/amp/Parts-chassis.jpg" title="Chassis and mounting hardware" caption="Chassis and mounting hardware" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Parts-chassis.jpg" title="Chassis and mounting hardware" caption="Chassis and mounting hardware" %}
 
 # References
 
