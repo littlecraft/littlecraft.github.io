@@ -1,6 +1,11 @@
 <figure class="full-width caption">
-    <a href="{{ include.imageurl }}">
-      <img src="{{ include.imageurl }}" alt="{{ include.title }}"/>
+    <a href="{{ include.imageurl }}" class="image-popup">
+      <div class="cropped">
+        <img src="/images/ring.gif" data-src="{{ include.imageurl }}" alt="{{ include.title }}"/>
+        <noscript>
+          <img src="{{ include.imageurl }}" alt="{{ include.title }}"/>
+        </noscript>
+      </div>
     </a>
     {% if include.caption %}
     <figcaption class="caption-text">{{ include.caption }}</figcaption>

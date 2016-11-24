@@ -1,5 +1,8 @@
 <figure class="full-width caption">
-    <img src="{{ include.imageurl }}" alt="{{ include.title }}"/>
+    <img src="/images/ring.gif" data-src="{{ include.imageurl }}" alt="{{ include.title }}"/>
+    <noscript>
+      <img src="{{ include.imageurl }}" alt="{{ include.title }}"/>
+    </noscript>
     {% if include.caption %}
     <figcaption class="caption-text">{{ include.caption }}</figcaption>
     {% endif %}

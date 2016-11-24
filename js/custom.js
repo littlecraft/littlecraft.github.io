@@ -8,7 +8,7 @@
 
     $("article").fitVids();
 
-    $("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
+    //$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.JPG'],a[href$='.png'],a[href$='.gif']").addClass("image-popup");
 
     $(document).ready(function(){
         // Responsive video embeds
@@ -49,6 +49,32 @@
           // Class that is added to body when popup is open. 
           // make it unique to apply your CSS animations just to this exact popup
           mainClass: 'mfp-fade'
+        });
+
+        // Dynamically crop images to have a 65% w/h ratio
+        $(function() {
+          $('.cropped').each(function() {
+            var width = $(this).width();
+            var height = $(this).height();
+
+            var maxHeight = width * 0.665;
+            if (height > maxHeight) {
+              var yOffset = (height - maxHeight) / 2.0;
+              $(this).children('img').css({
+                'top': -yOffset,
+                'position': 'relative'
+              });
+            }
+
+            $(this).css({
+              'max-height': maxHeight
+            });
+          });
+        });
+
+        // Lazy-load images
+        $(document).ready(function() {
+          $("img").unveil();
         });
     });
 

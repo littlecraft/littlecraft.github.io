@@ -291,6 +291,16 @@ img {
     max-width: 100%;
 }
 
+.cropped {
+  display: inline-block;
+  width: 100%;
+  // max-height set on load by custom.js
+  overflow: hidden;
+}
+
+.cropped img {
+}
+
 a img {
     -webkit-transition: opacity 0.3s;
     -moz-transition:    opacity 0.3s;
@@ -317,6 +327,7 @@ a:hover img {
 .full-width {
     clear: both;
     margin: 6px -80px 24px;
+    text-align: center;
 }
 
 /* Image captions */
