@@ -222,6 +222,7 @@
     background-color: $white;
     margin-bottom: 60px;
     padding-bottom: 40px;
+    word-wrap: break-word;
 }
 
 .post.featured {
@@ -804,7 +805,11 @@ a.archive-top-link:hover {
 }
 
 @media only screen and (max-width: 800px) {
-    .site-navigation,
+    .site-navigation {
+        padding-left: 15px;
+        padding-right: 0px;
+    }
+
     .site-header,
     .site-content,
     .site-footer {

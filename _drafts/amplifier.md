@@ -25,15 +25,15 @@ It had a broken potentiometer for the aux volume control that was rattling aroun
 
 {% include image_full.html imageurl="/images/posts/amp/Broken-pot.jpg" title="Poor guy" caption="Poor guy" %}
 
-Unfortunately, after plugging it in, and listening to the audio quality, the mood got a little deflated.  Although it was loud, with 15 watts, and a 4Ω woofer, the fidelity was pretty poor, and I think that it is due to the amplifier's board layout, cost-reducing efforts, and the low quality of the speaker driver.  The amplifier also had a pretty solid 60hz buzz, which at the time, I didn't really know how to solve.  Turns out, [appropriate grounding](http://www.geofex.com/article_folders/stargnd/stargnd.htm) and employment of [bypass capacitors](https://www.youtube.com/watch?v=UW_XFGGTh0I) (to reduce noise on the power rails) are incredibly important to producing a clean amplified audio signal.
+Unfortunately, after plugging it in, and listening to the audio quality, the mood got a little deflated.  Although it was loud, with 15 watts, and a 4Ω woofer, the fidelity was pretty poor, and I think that it was on account of the amplifier's board layout, cost-reducing efforts, and the low quality of the speaker driver.  The amplifier also had a pretty solid 60hz buzz, which at the time, I didn't really know how to solve.  Turns out, [appropriate grounding](http://diyaudioprojects.com/Technical/Grounding-Shielding/) and employment of [bypass capacitors](https://www.youtube.com/watch?v=UW_XFGGTh0I) (to reduce noise on the power rails) are incredibly important to producing a clean amplified audio signal.
 
-I had a second problem too.  I wanted to have the bluetooth adapter's power supplied by the amplifier board.  After hacking the two together to test things out, I could hear really *awful* RF interference emitting from the amplifier.  The reason for this had to do with the grounding technique of the amplifiers board layout.  It definitely wasn't in a star pattern, and it looked like power and signal grounds were intermixed, which I've read can lead to problems. The amplifier chips on the board also lacked proper bypassing, presumably to reduce the COGS and manufacturing costs of the product.
+I had a second problem too.  I wanted to have the bluetooth adapter's power supplied by the amplifier board.  After hacking the two together to test things out, I could hear really *awful* RF interference emitting from the amplifier.  The reason for this had to do with the grounding technique of the amplifiers board layout.  It definitely wasn't in a star pattern, and it looked like power and signal grounds were intermixed, which I guess can lead to problems. The amplifier chips on the board also lacked proper bypassing, presumably to reduce the COGS and manufacturing costs of the product.
 
-{% include image_full.html imageurl="/images/posts/amp/Stock-amp.jpg" title="Stock amplifier" caption="One half of the stock amplifier circuit; Comprised of two TI RC4558P chips, presumably in a bridge configuration<sup>1</sup>" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Stock-amp.jpg" title="Stock amplifier" caption="One half of the stock amplifier circuit; Comprised of two TI RC4558P chips, presumably in a bridge configuration<sup>1</sup>" %}
 
 I played around with adding some bypassing to the amplifier chips, but ultimately, trying to fix the problems started to seem less and less feasible for me to do in a reasonable amount of time.
 
-{% include image_full.html imageurl="/images/posts/amp/Stock-amp-bypassing.jpg" title="Trying to add bypass caps" caption="Hacked in some bypass caps on the amplifier chips" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Stock-amp-bypassing.jpg" title="Trying to add bypass caps" caption="Hacked in some bypass caps on the amplifier chips" %}
 
 Well, that didn't work.  So, short story long, let's roll our own!
 
@@ -45,7 +45,7 @@ Going back to the drawing board a little bit, I picked these as my new goals:
 1. A circuit that's easy enough for me to understand.
 1. Provides 10-20 watts through a 4Ω load (so that I can re-use the speaker)
 1. A simple, yet snazzy chassis and face plate that fits into the cavity left by the stock Peavey chassis, and one which provides heat sinking for the amplifier chip.
-1. An integrated 115V AC power supply.
+1. An integrated 120V AC power supply.
 
 # Bluetooth
 
@@ -61,11 +61,11 @@ This device isn't actually a USB audio adapter.  It provides audio through a 3.5
 
 To prepare the adapter for integration, first remove the plastic enclosure by placing it in a vice, along its seam, and gently applying compression until the two halves pop apart.  Bingo.  Then, to provide a more permanent integration point, depopulate the USB male connector, and solder on a 4x1 male pin header.  That will provide power and grounds to the two outer pins, leaving the two inner pins unused.
 
-{% include image_full.html imageurl="/images/posts/amp/Bluetooth-after.jpg" title="Bluetooth adapter after" caption="Bluetooth adapter after depopulating the USB connector, and adding a male pin header, and white wire to the indicator LED" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Bluetooth-after.jpg" title="Bluetooth adapter after" caption="Bluetooth adapter after depopulating the USB connector, and adding a male pin header, and white wire to the indicator LED" %}
 
 This particular adapter has an indicator LED, which blinks at different patterns according to whether or not something is paired to it.  I chose to depopulate the LED as well, and run its signal (which is connected directly to the SoC via a 1K resistor), out to one of the unused pins of the male pin header.  My goal for that is to incorporate the blinking pattern into the front panel of the amplifier somehow.
 
-{% include image_full.html imageurl="/images/posts/amp/Bluetooth-after-2.jpg" title="Bluetooth adapter after" caption="Bluetooth adapter after depopulating the USB connector, and adding a male pin headers" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Bluetooth-after-2.jpg" title="Bluetooth adapter after" caption="Bluetooth adapter after depopulating the USB connector, and adding a male pin headers" %}
 
 Now, since this project is going to be a mono amplifier (there's only one speaker), you might think that you could forgo the 3.5mm audio jack and somehow route a mono signal through the second unused pin of the male header.  But that would mean that the signal and the power source for the board would directly share a common ground pin.  Now, that *may* work, but to do our due "grounding" diligence, I decided to keep the 3.5mm jack, so that we would have a separate ground for the signal, and for the power source of the adapter.
 
@@ -133,7 +133,7 @@ If you don't have a ready supply of capacitors and resistors, getting a pre-asse
 
 # References
 
-1. [Bare-Bones "Skeleton" Amplifier](http://makezine.com/projects/build-bare-bones-skeleton-amplifier/) - http://makezine.com/projects/build-bare-bones-skeleton-amplifier/
+1. [Bare-Bones 'Skeleton' Amplifier](http://makezine.com/projects/build-bare-bones-skeleton-amplifier/) - http://makezine.com/projects/build-bare-bones-skeleton-amplifier/
 1. [Bridge Amplifier Circuit](https://en.wikipedia.org/wiki/Bridged_and_paralleled_amplifiers#Bridged_amplifier) - https://en.wikipedia.org/wiki/Bridged_and_paralleled_amplifiers#Bridged_amplifier
-
-
+1. [Star Grounding in Tue Amplifiers](http://www.geofex.com/article_folders/stargnd/stargnd.htm) - http://www.geofex.com/article_folders/stargnd/stargnd.htm
+1. [Grounding and Shielding for your DIY Audio Projects](http://diyaudioprojects.com/Technical/Grounding-Shielding/) - http://diyaudioprojects.com/Technical/Grounding-Shielding/
