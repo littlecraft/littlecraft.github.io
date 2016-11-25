@@ -126,7 +126,7 @@ If you don't have a ready supply of capacitors and resistors, getting a pre-asse
 1. 6x - 2 pole 5mm pitch screw down terminal blocks (optional, but nice.  Note: only 4 ended up in the picture below).
 
 ##### Chassis and heat dissipation
-1. 1x - 2x4x10 7/8" (or whatever dimensions you need) architectural aluminum stock.
+1. 1x - 4x2x0.125" x 10 7/8" (or whatever dimensions you need) architectural aluminum stock.
 1. 1x - Aluminum heatsink (optional, you can alternatively find a way to thermally bond the amplifier chip to an aluminum chassis)
 1. 1x (at least) - TO-220 thermal insulator, to electrically insulate the LM1875, but still allow it to thermally bond to the heat sink (43-77-20G)
 1. 1x - Silicone heat sink compound
@@ -141,7 +141,7 @@ If you don't have a ready supply of capacitors and resistors, getting a pre-asse
 
 {% include image_full_zoom.html imageurl="/images/posts/amp/Parts-chassis.jpg" title="Chassis and mounting hardware" caption="Chassis and mounting hardware" %}
 
-# The Power Supply
+# Power Supply
 
 **Be very careful with main power!**
 
@@ -173,7 +173,7 @@ This is how it ended up looking once installed in the enclosure.  I drilled hole
 
 {% include image_full_zoom.html imageurl="/images/posts/amp/Power-5.jpg" title="Power supply, installed" caption="Power supply, installed" %}
 
-# The Amplifier
+# Amplifier
 
 The amplifier circuit itself is essentially identical to the [LM1875](http://www.ti.com/lit/ds/symlink/lm1875.pdf) amplifier circuit detailed in the "Skeleton" Amplifier project.  In that project, you of course build two of them, for stereo.  Here we only need one.  There are only a few main differences between the Skeleton circuit, and the one below.
 
@@ -183,6 +183,8 @@ The amplifier circuit itself is essentially identical to the [LM1875](http://www
 1. There is a transistor that is used to control an external indicator LED.
 
 {% include image_full_zoom.html imageurl="/images/posts/amp/Amp-schematic.png" title="Amplifier circuit" caption="Amplifier circuit" %}
+
+I want a single LED power/connectivity indicator for the front panel, but the LED indicator of the bluetooth module doesn't quite behave in a way that I need.  For instance, it doesn't illuminate until the SoC boots (which takes a second or two).  Secondly, I want to keep the design open for adding an AUX channel port, and allow for the bluetooth module to be powered down while the AUX channel is being used.  This means that I cannot rely solely on the output of the bluetooth module's LED output.  To solve this, I use an NPN transistor, and create a not gate, which essentially inverts the LED indicator signal that comes from the bluetooth module.  The result is that the LED is always on, and only turns off when the bluetooth module blinks its LED output line.
 
 Before trying to come up with a board layout, I tried the circuit out on a breadboard, to see how it worked.  This doesn't actually give you a sense of how the amplifier will sound when laid out on an actual board.  The contacts between components are not terribly secure, there are a lot of long leads that can pick up interference, and the grounding typically won't be very good, causing ground loops, which can again, introduce interference.  In particular, I noticed that the bluetooth module introduced quite a bit of interference, even though the amplifier is pretty well protected by bypass capacitors.  Also, it is not a good idea to run the amplifier for very long without some kind of heat sinking.  It gets extremely hot, even after a few seconds of activity.
 
@@ -204,7 +206,7 @@ A "star" grounding configuration<sup>[7](http://www.geofex.com/article_folders/s
 
 You may not end up getting a perfect star ground configuration, but give it a shot. I wasn't entirely successful in getting a perfect star ground configuration, but it's not bad for a first attempt.
 
-I used screw down terminals to connect all of the external parts.  In Fig 1, starting from the top left, the screw down terminal closest to the bluetooth module is for the indicator LED, that will be attached to the chassis.  The one below it is for the power.  I only had 2-pole terminals available, so these are wired as VCC- on the top, two grounds in the middle, and VCC+ at the bottom.  The second GND terminal block will be used to ground the chassis using a lead with a spade connector.  For the audio input, there are a total of 4 poles.  Each channel has an independent ground, of which, I only use one.  The terminal to the right is the output to the speaker.  
+I used screw down terminals to connect all of the external parts.  In Fig 1, starting from the top left, the screw down terminal closest to the bluetooth module is for the indicator LED, that will be attached to the chassis.  The one below it is for the power.  I only had 2-pole terminals available, so these are wired as VCC- on the top, two grounds in the middle, and VCC+ at the bottom.  The second GND terminal block will be used to ground the chassis using a lead with a spade connector.  For the audio input, there are a total of 4 poles.  Each channel has an independent ground, of which, I only use one.  The terminal to the right is the output to the speaker.
 
 The volume potentiometer is positioned flush with the front of the board so that it can be attached to the chassis' front panel, and the LM1875 is positioned flush with the back of the board so that it can be bonded to the heat sink.  I did not bother screwing down or heat sinking the L7805CV voltage regulator, since it is not going to get terribly warm, nor do I intend to move the finished amplifier around very often.
 
@@ -215,9 +217,57 @@ Here is the layout of the underside of the board.  In order to reduce the overal
 
 {% include image_full_zoom.html imageurl="/images/posts/amp/Amp-layout-bottom.jpg" title="Fig 3. Amplifier layout, bottom" caption="Fig 3. Amplifier layout, bottom" %}
 
+# Chassis and Front Panel
+
+A single piece of 4x2x0.125" x 10 7/8" angle architectural aluminum serves as both the chassis and the front panel of the amplifier.  I was able to source this from a local metal supply shop that sold 4x2 angle architectural aluminum by the inch.  "Architectural" in this context means that it has a crisp right angle on the interior, which is perfect for this application.  The heat sink and circuit board are both mounted to the 4" wide section of the angle aluminum, and the 2" section serves as the front panel.  Because there is an inside angle of 90°, the circuit board can fit up flush against the front panel.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Chassis-stock.jpg" title="Aluminum stock 4x2x0.125 x 10 7/8 inch, angle architectural" caption="Aluminum stock 4x2x0.125 x 10 7/8 inch, angle architectural" %}
+
+To help make clean holes, and to more easily lay things out, put down a layer of masking tape over the outside surface.  The front panel will have a power switch, a volume knob, and an power/bluetooth connectivity indicator LED.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Chassis-front.jpg" title="Front panel layout" caption="Front panel layout" %}
+
+If you don't have a drill press, use a center punch, a nail, or screw to make a centered guide for the drill bit.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Chassis-punch.jpg" title="Center punch holes" caption="Center punch holes" %}
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Chassis-top.jpg" title="Chassis layout, circuit board footprint" caption="Chassis layout, circuit board footprint" %}
+
+To get the spacing correct, you can always try playing around with the boards orientation, and layout of externally accessible components, so that you can make sure that the heat sink, the amplifier, the holes in the chassis, and the volume potentiometer all align.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Chassis-layout-test.jpg" title="Chassis layout test" caption="Chassis layout test" %}
+
+The heat sink I use has gaps in three locations across its length, and are easily tapped with a small screw.  Once everything is in place,  mark the location of the holes for the heat sink with a sharp nail.
+
+Once you've drilled the holes, knock down any burs with a metal file, and affix the heat sink.  To attach it to the chassis, just screw it to the bottom.  To give the aluminum a nice finish, use a high-grit sand paper (i.e. 600 grit) to remove any swirls, and to produce a slightly matted grain finish by sanding in a constant horizontal direction.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Chassis-heatsink.jpg" title="Attaching heat sink to chassis" caption="Attaching heat sink to chassis" %}
+
+# Assembly
+
+All that's left now, is to bolt it all together.  To mount the amplifier circuit, use #6 nylon screws, nuts, and 1/4" spacers to mount the amplifier circuit.  To bond the LM1875 to the heat sink, use a TO-220 thermal insulator, along with some silicone thermal compound (on both sides), securing it with another #6 nylon screw, washer, and nut.  It's important for the LM1875 to be electrically insulated from the heat sink, but thermally bonded.
+
+Ground the chassis using a crimped spade connector, and attach the other end of the lead to the star ground of the amplifier circuit.  I used the spare GND terminal block for this.
+
+Finally, secure the power switch, the external LED, and the volume knob.
+
+Not pictured here, but I encase the bluetooth module in heat-shrink tubing to better protect it from an accidental short.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Assembly-everything-1.jpg" title="Assembly - 1" caption="Assembly - 1" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Assembly-everything-2.jpg" title="Assembly - 2" caption="Assembly - 2" %}
+
 # Results
 
-In the end, there is a bit of audible interference from the bluetooth module, but it is only detectable at high volume, and without the audio source playing.  I also can hear a bit of DC feedback when the LED blinks, which I think is due, again, to improper grounding.s
+In the end, things turned out pretty well.  The amplifier sounds great, and is definitely loud enough for my small space.  I also like the clean look of the aluminum face plate, and defuse white LED.  I am especially happy about the volume knob.  I got it a several years ago at a vendor stall at an electronics mega store in Akihabara, Tokyo, and have been holding on to it with bright intent.
+
+{% include image_full_zoom.html imageurl="/images/posts/amp/Results-back.jpg" title="Results, back" caption="Results, back" %}
+{% include image_full_zoom.html imageurl="/images/posts/amp/Results-front.jpg" title="Results, front" caption="Results, front" %}
+
+Unfortunately, there is a bit of audible interference from the bluetooth module, but it is only detectable at high volume, and without the audio source playing.  I also can hear a bit of DC feedback when the LED blinks, which I think is due, again, to improper grounding.  Even so, it still sounds great to me!
+
+# Next Steps
+
+I suspect that the sound quality of this amplifier can be improved.  The enclosure has an open back, and uses a 4Ω woofer driver, which doesn't seems to have a very wide range.  It has decent bass, but muffled mids and highs.  The next step for this project will be to hack the enclosure, sealing the back and air gaps, and opening up a bass reflex port so that the bass can resonate more efficiently.  A full range speaker driver would also be a nice addition.  These drivers often have two integrated speaker cones (a tweeter and a woofer) and built-in cross-over circuitry.  In the mean time the lab is filled with pleasant tunes once again, and I had a great learning experience.
 
 # References
 
