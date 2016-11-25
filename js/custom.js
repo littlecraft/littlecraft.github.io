@@ -51,30 +51,33 @@
           mainClass: 'mfp-fade'
         });
 
-        // Dynamically crop images to have a 65% w/h ratio
-        $(function() {
-          $('.cropped').each(function() {
-            var width = $(this).width();
-            var height = $(this).height();
-
-            var maxHeight = width * 0.665;
-            if (height > maxHeight) {
-              var yOffset = (height - maxHeight) / 2.0;
-              $(this).children('img').css({
-                'top': -yOffset,
-                'position': 'relative'
-              });
-            }
-
-            $(this).css({
-              'max-height': maxHeight
-            });
-          });
-        });
-
         // Lazy-load images
         $(document).ready(function() {
-          $("img").unveil();
+          $("img").unveil(200, function() {
+              $(this).load(function() {
+                // Dynamically crop images to have a 65% w/h ratio
+                $(function() {
+                  $('.cropped').each(function() {
+                    var width = $(this).width();
+                    var height = $(this).height();
+
+                    var maxHeight = width * 0.665;
+
+                    if (height > maxHeight) {
+                      var yOffset = (height - maxHeight) / 2.0;
+                      $(this).children('img').css({
+                        'top': -yOffset + 'px',
+                        'position': 'relative'
+                      });
+                    }
+
+                    $(this).css({
+                      'max-height': maxHeight
+                    });
+                  });
+              });
+            });
+          });
         });
     });
 
