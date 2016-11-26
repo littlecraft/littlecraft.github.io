@@ -32,15 +32,13 @@ navigation:
   url: /about/
 - text: Archives
   url: /tags/
-- text: Style Guide
-  url: /style-guide/
 
 # The shortname for your Disqus site to enable comments.
 disqus: littlecraftllc
 
 # Author information - author info at the bottom of the post
 author_name: "Matthew Waddell"
-author_bio: ""
+#author_bio: ""
 author_url:  "http://littlecraft.io"
 author_location: "Portland, OR, USA"
 author_image: /images/authorimage.png
