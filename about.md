@@ -2,7 +2,7 @@
 layout: page
 title: About littlecraft
 description: What littlecraft can offer you
-banner_image: aboutPage2.jpg
+banner_image: aboutPage.jpg
 no_author_info: true
 ---
 
