@@ -35,8 +35,8 @@
 .site-header,
 .site-content,
 .site-footer {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .inner {
@@ -96,7 +96,7 @@
     letter-spacing: 1px;
     padding: 0 15px;
     text-decoration: none;
-    text-transform: lowercase;    
+    text-transform: lowercase;
 }
 
 .nav-menu li:first-child > a {
@@ -883,6 +883,7 @@ a.archive-top-link:hover {
         padding-left: 20px;
         padding-right: 0;
         position: relative;
+        text-transform: lowercase;
     }
 
     #menu-toggle:hover,

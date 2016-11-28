@@ -38,8 +38,8 @@ disqus: littlecraftllc
 
 # Author information - author info at the bottom of the post
 author_name: "Matthew Waddell"
-#author_bio: ""
-author_url:  "http://littlecraft.io"
+author_bio: "Hi, I'm Matthew Waddell, and I make things work.  I craft software and hardware, tailored for you.  Sensors, controllers, data analysis, niche algorithms, a friendly user experience--I can help."
+author_url:  "https://littlecraft.io"
 author_location: "Portland, OR, USA"
 author_image: /images/authorimage.png
 author_email: matt@littlecraft.io
