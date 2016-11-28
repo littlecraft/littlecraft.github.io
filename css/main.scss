@@ -399,6 +399,16 @@
     padding-left: 120px;
 }
 
+.widget .author-avatar {
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    height: 60px;
+    float: left;
+    margin-right: 30px;
+    width: 60px;
+}
+
 .author-info .author-avatar {
     background-position: center;
     background-size: cover;
@@ -410,7 +420,7 @@
 }
 
 .author-info .author-title {
-    font-size: 16px;    
+    font-size: 16px;
     letter-spacing: 1px;
     margin-bottom: 15px;
     text-transform: lowercase;

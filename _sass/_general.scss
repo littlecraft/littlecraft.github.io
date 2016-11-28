@@ -298,9 +298,6 @@ img {
   overflow: hidden;
 }
 
-.cropped img {
-}
-
 a img {
     -webkit-transition: opacity 0.3s;
     -moz-transition:    opacity 0.3s;
@@ -308,6 +305,16 @@ a img {
 }
 
 a:hover img {
+    opacity: 0.8;
+}
+
+a .author-avatar {
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    transition:         opacity 0.3s;
+}
+
+a:hover .author-avatar {
     opacity: 0.8;
 }
 

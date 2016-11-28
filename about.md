@@ -1,9 +1,14 @@
 ---
 layout: page
-title: About this blog
-description: An optional about page for BlogInn Jekyll theme
-banner_image: aboutPage.jpg
+title: About littlecraft
+description: What littlecraft can offer you
+banner_image: aboutPage2.jpg
+no_author_info: true
 ---
+
+Hi,
+
+I'm Matthew Waddell, and I create
 
 **John Doe** is a Senior Art Director from [Vilnius](https://en.wikipedia.org/wiki/Vilnius), Lithuania. After graduating from The College of Visual Arts with a degree in Communication Design, he worked for three small graphic design shops where he honed his design style and sensibility.
 

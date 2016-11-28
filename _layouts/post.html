@@ -37,9 +37,9 @@ layout: default
             </article><!-- .post -->
             <div class="author-box">
                 <div class="author-info">
-                    <div class="author-avatar" style="background-image: url({{ site.author_image }})"><span class="screen-reader-text">{{ site.author_name }}'s Picture</span></div>
-                    <div class="author-details">
-                        <h2 class="author-title">About {{ site.author_name }}</h2>
+                    <a href="/about"><div class="author-avatar" style="background-image: url({{ site.author_image }})"><span class="screen-reader-text">{{ site.author_name }}'s Picture</span></div>
+                    <div class="author-details"></a>
+                        <a href="/about"><h2 class="author-title">About {{ site.author_name }}</h2></a>
                         <p class="author-bio">{{ site.author_bio }}</p>
                         <span class="author-location"><i class="fa-map-marker" aria-hidden="true"></i> {{ site.author_location }}</span>
                         <span class="author-website"><i class="fa-chain" aria-hidden="true"></i> <a href="{{ site.author_url }}" target="_blank"> {{ site.author_url }}</a></span>
@@ -64,7 +64,7 @@ layout: default
                 <div class="nav-next">
                     <div class="nav-inside">
                         {% if page.next.banner_image %}
-                        <a href="{{ site.baseurl }}{{page.next.url}}" class="nav-thumb" style="background-image: url({{ "/images/posts/" | append: page.next.banner_image }})"></a>
+                        <a href="{{ site.baseur  }}{{page.next.url}}" class="nav-thumb" style="background-image: url({{ "/images/posts/" | append: page.next.banner_image }})"></a>
                         {% endif %}
                         <div class="nav-before">Next</div>
                         <div class="nav-title"><a href="{{ site.baseurl }}{{page.next.url}}">{{page.next.title}}</a></div>
@@ -77,6 +77,6 @@ layout: default
                 {% include disqus.html %}
             {% endif %}
         </main><!-- .site-main -->
-        {% include sidebar.html %}
+        {% include sidebar.html no_author_info=page.no_author_info %}
     </div><!-- .inner -->
 </div><!-- .site-content -->
