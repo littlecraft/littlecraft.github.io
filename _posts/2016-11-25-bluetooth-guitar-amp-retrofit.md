@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A 10 Watt Bluetooth Guitar Amp Retrofit"
+title:  "10 Watt Bluetooth Guitar Amp - Part 1 - Retrofit"
 banner_image: amp/Amp.jpg
 tags: [hardware, bluetooth, audio, hack]
 ---
